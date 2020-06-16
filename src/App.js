@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Assessments from './components/Assessments';
+import ErrorBoundary from './ErrorBoundary';
+import './App.css';
 
-const App = () => (
-	<div className="container">
-		<h1>Hello World, React!</h1>
-	</div>
-);
+class App extends Component {
+	render() {
+		return (
+			<div>
+				<ErrorBoundary>
+					<Assessments />
+				</ErrorBoundary>
+			</div>
+		);
+	}
+}
 
 export default App;
