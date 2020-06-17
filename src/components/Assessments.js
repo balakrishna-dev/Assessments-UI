@@ -55,7 +55,17 @@ class Assessments extends Component {
 			<div>
 				<MuiThemeProvider>
 					<AppBar
-						title="Personal, Social, Emotional Development"
+						titleStyle={{ lineHeight: 'normal' }}
+						title={
+							<div>
+								<div style={{ marginTop: 10, fontWeight: 500 }}>
+									Personal, Social, Emotional Development
+								</div>
+								<div style={{ fontSize: 'small', fontWeight: 500 }}>
+									Fundamental Areas of Development
+								</div>
+							</div>
+						}
 						iconElementLeft={
 							<IconButton>
 								<NavigationBack onClick={handleBack} />

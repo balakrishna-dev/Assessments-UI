@@ -1,68 +1,115 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './listview.css';
+import ReactDataGrid from 'react-data-grid';
+import './styles.css';
 
 class ListView extends Component {
 	render() {
 		const { isLoading, items, error } = this.props;
-		const gradeHandler = () => {};
+		//const gradeHandler = () => {};
+		const ROW_COUNT = items.length;
+		const ROW_HEIGHT = 200;
+		const Panel = ({ title, children }) => {
+			return (
+				<div className="panel panel-default" style={{ margin: 0 }}>
+					<div className="panel-heading" />
+					<div className="panel-body" style={{ padding: 0 }}>
+						{children}
+					</div>
+				</div>
+			);
+		};
+		const Contact = ({ name, Class }) => {
+			return (
+				<div>
+					<div>
+						<address style={{ paddingLeft: 50, paddingTop: 30 }}>
+							<strong>{name}</strong>
+							<br />
+							{Class}
+						</address>
+					</div>
+				</div>
+			);
+		};
+		const GradeOptions = () => {
+			return (
+				<div style={{ marginLeft: 100, marginTop: 30 }}>
+					<label className="radio-inline">
+						<input type="radio" name="gradeSelection" />
+					</label>
+					<label className="radio-inline">
+						<input type="radio" name="gradeSelection" />
+					</label>
+					<label className="radio-inline">
+						<input type="radio" name="gradeSelection" />
+					</label>
+					<label className="radio-inline">
+						<input type="radio" name="gradeSelection" />
+					</label>
+				</div>
+			);
+		};
+		const RowRenderer = ({ row, idx }) => {
+			const { name, img } = row;
+			return (
+				<Panel key={idx} title={`${name}`}>
+					<div
+						style={{
+							display: 'flex',
+							flexDirection: 'row',
+							flexWrap: 'nowrap'
+						}}
+					>
+						<img src={img} className="pull-left" alt={name} height="100" width="100" />
+						<Contact {...row} />
+						<GradeOptions />
+					</div>
+				</Panel>
+			);
+		};
+		const columns = [
+			{
+				key: 'id',
+				name: 'ID'
+			},
+			{
+				key: 'firstName',
+				name: 'First Name'
+			},
+			{
+				key: 'lastName',
+				name: 'Last Name'
+			},
+			{
+				key: 'jobTitle',
+				name: 'Job Title'
+			}
+		].map((c) => ({ ...c, ...defaultColumnProperties }));
+		const defaultColumnProperties = {
+			width: 160
+		};
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
 				<div className="count">
 					<h4>{items.length} Students</h4>
 				</div>
-				<div className="main">
-					<div className="label">
-						<label className="label-inline">NOT YET INTRODUCED</label>
-
-						<label className="label-inline">EMERGING SKILL</label>
-
-						<label className="label-inline">DEVELOPING SKILL</label>
-
-						<label className="label-inline">CAPABLE</label>
+				{!isLoading ? (
+					<div className="main">
+						<ReactDataGrid
+							columns={columns}
+							rowGetter={(i) => items[i]}
+							rowsCount={ROW_COUNT}
+							minHeight={700}
+							rowRenderer={RowRenderer}
+							rowHeight={ROW_HEIGHT}
+							headerRowHeight={30}
+						/>
 					</div>
-					{!isLoading ? (
-						items.map((item) => {
-							const { Class, name, img, id } = item;
-							return (
-								<div key={id} className="box">
-									<table>
-										<tbody>
-											<tr className="item">
-												<td>
-													<img src={img} alt={name} height="100" width="100" />
-												</td>
-												<td className="names">
-													<h4> {name}</h4>
-													<h5> {Class}</h5>
-												</td>
-												<th className="radio-line">
-													<div className="radio">
-														<label className="radio-inline">
-															<input type="radio" name="gradeSelection" />
-														</label>
-														<label className="radio-inline">
-															<input type="radio" name="gradeSelection" />
-														</label>
-														<label className="radio-inline">
-															<input type="radio" name="gradeSelection" />
-														</label>
-														<label className="radio-inline">
-															<input type="radio" name="gradeSelection" />
-														</label>
-													</div>
-												</th>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							);
-						})
-					) : (
-						<h3>Loading...</h3>
-					)}
-				</div>
+				) : (
+					<h3>Loading...</h3>
+				)}
 			</div>
 		);
 	}

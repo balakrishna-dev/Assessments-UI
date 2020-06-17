@@ -1,10 +1,11 @@
 .main {
 	padding: 10px;
-	max-width: 100%;
-	height: auto;
+	width: 100%;
+	max-height: 100%;
 	background-color: rgb(224, 222, 222);
 }
-.label {
+*/
+	/* .label {
 	margin-left: 700px;
 }
 .label-inline {
@@ -12,30 +13,29 @@
 	font-weight: 550;
 	position: relative;
 	margin-left: 60px;
-}
-.box {
+} */
+	.box {
 	margin: 20px;
 	max-width: 100%;
 	height: auto;
 	background-color: rgb(255, 255, 255);
 }
+.count {
+	margin: 20px;
+}
 
-.item {
+/* .item {
 	max-height: auto;
 	padding: 20px;
 	align-content: stretch;
-}
-
-.count {
-	margin-left: 50px;
-}
+} 
 .names {
 	position: absolute;
 	margin-left: 20px;
-}
-.radio-line {
-	position: absolute;
-	margin-left: 600px;
+} */
+
+/* .radio-line {
+	padding-left: 600px;
 }
 input[type=radio] {
 	border: 0px;
@@ -43,9 +43,10 @@ input[type=radio] {
 	height: 2em;
 }
 .radio-inline {
-	margin: 80px;
-}
+	margin: 120px;
+} */
 
-.radio {
-	padding-top: 40px;
+.App {
+	font-family: sans-serif;
+	text-align: center;
 }

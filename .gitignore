@@ -10,10 +10,11 @@
 
 # production
 /build
-.gitignore
-/package-lock.json
+
 
 # misc
+.gitignore
+/package-lock.json
 .DS_Store
 .env.local
 .env.development.local
