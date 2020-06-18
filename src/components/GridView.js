@@ -7,18 +7,32 @@ import './gridview.css';
 
 class GridView extends Component {
 	render() {
-		const { isLoading, items, error } = this.props;
+		const { isLoading, items, error, searchKeyword } = this.props;
 		const GridViewList = () => {
 			return (
 				<div className="wrapper">
 					<GridList cols={5} className="box1" style={{ margin: '0' }}>
-						{items.map((item) => (
-							<Card key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />
-						))}
+						{SearchedList}
 					</GridList>
 				</div>
 			);
 		};
+		const SearchedList = items
+			.filter((item) => {
+				if (searchKeyword == null) return item;
+				else if (
+					item.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+					item.Class.toLowerCase().includes(searchKeyword.toLowerCase())
+				)
+					return item;
+			})
+			.map((item) => {
+				return (
+					<div>
+						<Card key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />
+					</div>
+				);
+			});
 		return (
 			<div>
 				{error && <p>{error}</p>}

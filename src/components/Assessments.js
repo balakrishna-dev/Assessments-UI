@@ -8,6 +8,7 @@ import NavigationBack from 'material-ui/svg-icons/navigation/arrow-back';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
 import '../App.css';
 import { connect } from 'react-redux';
 import GridView from './GridView';
@@ -19,7 +20,9 @@ class Assessments extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			gridView: false
+			gridView: false,
+			search: false,
+			searchKeyword: ''
 		};
 	}
 	componentWillMount() {
@@ -28,13 +31,18 @@ class Assessments extends Component {
 
 	render() {
 		const handleBack = () => {
-			this.setState({ gridView: false });
+			this.setState({ gridView: false, search: false });
 		};
 
 		const handleGrid = () => {
-			this.setState({ gridView: true });
+			this.setState({ gridView: true, search: false });
 		};
-
+		const handleSearch = () => {
+			this.setState({ search: true });
+		};
+		const handleSearchWord = (e) => {
+			this.setState({ searchKeyword: e.target.value });
+		};
 		const MorevertIcon = () => (
 			<IconMenu
 				iconButtonElement={
@@ -73,9 +81,20 @@ class Assessments extends Component {
 						}
 						iconElementRight={
 							<div>
-								<IconButton style={{ paddingRight: 70 }}>
-									<ActionSearch color="white" />
-								</IconButton>
+								{this.state.search ? (
+									<TextField
+										type="text"
+										hintText="Search here..."
+										// style={{
+										// 	backgroundColor: 'white'
+										// }}
+										onChange={handleSearchWord}
+									/>
+								) : (
+									<IconButton style={{ paddingRight: 70 }}>
+										<ActionSearch color="white" onClick={handleSearch} />
+									</IconButton>
+								)}
 								<IconButton style={{ paddingRight: 70 }}>
 									<ActionDone color="white" />
 								</IconButton>
@@ -84,7 +103,11 @@ class Assessments extends Component {
 						}
 					/>
 				</MuiThemeProvider>
-				{this.state.gridView ? <GridView /> : <ListView />}
+				{this.state.gridView ? (
+					<GridView searchKeyword={this.state.searchKeyword} />
+				) : (
+					<ListView searchKeyword={this.state.searchKeyword} />
+				)}
 			</div>
 		);
 	}

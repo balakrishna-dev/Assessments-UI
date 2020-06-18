@@ -5,14 +5,13 @@ import './styles.css';
 
 class ListView extends Component {
 	render() {
-		const { isLoading, items, error } = this.props;
+		const { isLoading, items, error, searchKeyword } = this.props;
 		//const gradeHandler = () => {};
 		const ROW_COUNT = items.length;
 		const ROW_HEIGHT = 200;
-		const Panel = ({ title, children }) => {
+		const Panel = ({ children }) => {
 			return (
-				<div className="panel panel-default" style={{ margin: 0 }}>
-					<div className="panel-heading" />
+				<div className="panel panel-default" style={{ margin: 10 }}>
 					<div className="panel-body" style={{ padding: 0 }}>
 						{children}
 					</div>
@@ -68,13 +67,14 @@ class ListView extends Component {
 				</Panel>
 			);
 		};
+
 		const columns = [
 			{
 				key: 'id',
-				name: 'ID'
+				name: ''
 			},
 			{
-				key: 'firstName',
+				key: 'name',
 				name: 'First Name'
 			},
 			{
@@ -85,10 +85,8 @@ class ListView extends Component {
 				key: 'jobTitle',
 				name: 'Job Title'
 			}
-		].map((c) => ({ ...c, ...defaultColumnProperties }));
-		const defaultColumnProperties = {
-			width: 160
-		};
+		];
+
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
@@ -96,17 +94,16 @@ class ListView extends Component {
 					<h4>{items.length} Students</h4>
 				</div>
 				{!isLoading ? (
-					<div className="main">
-						<ReactDataGrid
-							columns={columns}
-							rowGetter={(i) => items[i]}
-							rowsCount={ROW_COUNT}
-							minHeight={700}
-							rowRenderer={RowRenderer}
-							rowHeight={ROW_HEIGHT}
-							headerRowHeight={30}
-						/>
-					</div>
+					<ReactDataGrid
+						columns={columns}
+						rowGetter={(i) => items[i]}
+						rowsCount={ROW_COUNT}
+						minHeight={700}
+						minWidth={'100%'}
+						rowRenderer={RowRenderer}
+						rowHeight={ROW_HEIGHT}
+						headerRowHeight={-1}
+					/>
 				) : (
 					<h3>Loading...</h3>
 				)}
