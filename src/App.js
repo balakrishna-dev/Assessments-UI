@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Assessments from './components/Assessments';
+import Assessments from './Layout/Assessments';
 import ErrorBoundary from './ErrorBoundary';
-import './App.css';
+import './styles/css/App.css';
 
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<ErrorBoundary>
 					<Assessments />
 				</ErrorBoundary>

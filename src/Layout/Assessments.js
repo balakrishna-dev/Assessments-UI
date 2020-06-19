@@ -9,7 +9,7 @@ import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import '../App.css';
+import '../styles/css/App.css';
 import { connect } from 'react-redux';
 import GridView from './GridView';
 import fetchStudentData from './Redux/StudentsActions';
@@ -30,6 +30,14 @@ class Assessments extends Component {
 	}
 
 	render() {
+		const styles = {
+			underlineStyle: {
+				borderColor: 'white'
+			},
+			textStyle: {
+				color: 'white'
+			}
+		};
 		const handleBack = () => {
 			this.setState({ gridView: false, search: false });
 		};
@@ -43,6 +51,7 @@ class Assessments extends Component {
 		const handleSearchWord = (e) => {
 			this.setState({ searchKeyword: e.target.value });
 		};
+
 		const MorevertIcon = () => (
 			<IconMenu
 				iconButtonElement={
@@ -84,10 +93,10 @@ class Assessments extends Component {
 								{this.state.search ? (
 									<TextField
 										type="text"
+										style={{ color: 'white' }}
 										hintText="Search here..."
-										// style={{
-										// 	backgroundColor: 'white'
-										// }}
+										hintStyle={styles.textStyle}
+										underlineFocusStyle={styles.underlineStyle}
 										onChange={handleSearchWord}
 									/>
 								) : (

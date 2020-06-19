@@ -3,7 +3,7 @@ import { GridList } from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
 import Card from './Card';
-import './gridview.css';
+import '../styles/css/GridView.css';
 
 class GridView extends Component {
 	render() {
@@ -11,7 +11,7 @@ class GridView extends Component {
 		const GridViewList = () => {
 			return (
 				<div className="wrapper">
-					<GridList cols={5} className="box1" style={{ margin: '0' }}>
+					<GridList cols={5} className="box" style={{ margin: '0' }}>
 						{SearchedList}
 					</GridList>
 				</div>
@@ -20,18 +20,11 @@ class GridView extends Component {
 		const SearchedList = items
 			.filter((item) => {
 				if (searchKeyword == null) return item;
-				else if (
-					item.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-					item.Class.toLowerCase().includes(searchKeyword.toLowerCase())
-				)
-					return item;
+				else if (item.name.toLowerCase().includes(searchKeyword.toLowerCase())) return item;
+				return null;
 			})
 			.map((item) => {
-				return (
-					<div>
-						<Card key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />
-					</div>
-				);
+				return <Card key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />;
 			});
 		return (
 			<div>

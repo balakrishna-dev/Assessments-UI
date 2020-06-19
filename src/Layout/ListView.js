@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
-import './styles.css';
+import '../styles/css/ListView.css';
 
 class ListView extends Component {
 	render() {
 		const { isLoading, items, error, searchKeyword } = this.props;
 		//const gradeHandler = () => {};
-		const ROW_COUNT = items.length;
+
 		const ROW_HEIGHT = 200;
 		const Panel = ({ children }) => {
 			return (
@@ -33,7 +33,7 @@ class ListView extends Component {
 		};
 		const GradeOptions = () => {
 			return (
-				<div style={{ marginLeft: 100, marginTop: 30 }}>
+				<div style={{ position: 'absolute', margin: '30px 10px 20px 400px' }}>
 					<label className="radio-inline">
 						<input type="radio" name="gradeSelection" />
 					</label>
@@ -67,26 +67,48 @@ class ListView extends Component {
 				</Panel>
 			);
 		};
+		const defaultColumnProperties = {
+			width: 160
+		};
 
 		const columns = [
 			{
 				key: 'id',
-				name: ''
+				name: '',
+				width: -1,
+				hidden: true
 			},
 			{
 				key: 'name',
-				name: 'First Name'
+				name: '',
+				width: -1,
+				hidden: true
 			},
 			{
-				key: 'lastName',
-				name: 'Last Name'
+				key: 'Class',
+				name: '',
+				width: -1,
+				hidden: true
 			},
 			{
-				key: 'jobTitle',
-				name: 'Job Title'
+				key: 'img',
+				name: '',
+				width: -1,
+				hidden: true
+			},
+			{
+				key: 'grade',
+				name: 'not yet introduced'
 			}
-		];
+		].map((c) => ({ ...c, ...defaultColumnProperties }));
 
+		const SearchedList = items.filter((item) => {
+			if (searchKeyword == null) return item;
+			else if (item.name.toLowerCase().includes(searchKeyword.toLowerCase())) return item;
+			return null;
+		});
+
+		const ROW_COUNT = SearchedList.length;
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
@@ -96,13 +118,13 @@ class ListView extends Component {
 				{!isLoading ? (
 					<ReactDataGrid
 						columns={columns}
-						rowGetter={(i) => items[i]}
+						rowGetter={(i) => SearchedList[i]}
 						rowsCount={ROW_COUNT}
 						minHeight={700}
 						minWidth={'100%'}
 						rowRenderer={RowRenderer}
 						rowHeight={ROW_HEIGHT}
-						headerRowHeight={-1}
+						headerRowHeight={30}
 					/>
 				) : (
 					<h3>Loading...</h3>

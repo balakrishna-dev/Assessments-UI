@@ -1,0 +1,8 @@
+.count {
+  margin: 20px; }
+
+.radio-inline {
+  padding-left: 80px; }
+
+.react-grid-Grid {
+  min-height: calc(100vh - 56px) !important; }
