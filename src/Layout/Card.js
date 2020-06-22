@@ -24,7 +24,7 @@ const StudentCard = (props) => {
 			<div style={{ paddingBottom: 0 }}>
 				<CardMedia
 					id="h"
-					overlay={<MorevertIcon />}
+					// overlay={<MorevertIcon />}
 					overlayStyle={{}}
 					overlayContainerStyle={{ height: 5, width: 50, padding: 0, margin: 0 }}
 				>

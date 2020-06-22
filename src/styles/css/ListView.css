@@ -1,8 +1,24 @@
 .count {
   margin: 20px; }
 
-.radio-inline {
-  padding-left: 80px; }
-
 .react-grid-Grid {
-  min-height: calc(100vh - 56px) !important; }
+  min-height: calc(100vh - 56px) !important;
+  padding-bottom: 0px;
+  margin-bottom: 0px; }
+
+.react-grid-Header {
+  outline: none;
+  box-shadow: none;
+  background-color: white; }
+
+.react-grid-HeaderCell {
+  border: none;
+  font-weight: 500;
+  background-color: white; }
+
+.react-grid-Main {
+  outline: 0px;
+  border: none; }
+
+.radio-inline {
+  padding-left: 135px; }

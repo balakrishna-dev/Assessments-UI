@@ -20,20 +20,16 @@ class ListView extends Component {
 		};
 		const Contact = ({ name, Class }) => {
 			return (
-				<div>
-					<div>
-						<address style={{ paddingLeft: 50, paddingTop: 30 }}>
-							<strong>{name}</strong>
-							<br />
-							{Class}
-						</address>
-					</div>
-				</div>
+				<address style={{ paddingLeft: 50, paddingTop: 30 }}>
+					<strong>{name}</strong>
+					<br />
+					{Class}
+				</address>
 			);
 		};
 		const GradeOptions = () => {
 			return (
-				<div style={{ position: 'absolute', margin: '30px 10px 20px 400px' }}>
+				<div style={{ position: 'absolute', justifyContent: 'center', left: 800, margin: '30px 0px 20px 0px' }}>
 					<label className="radio-inline">
 						<input type="radio" name="gradeSelection" />
 					</label>
@@ -49,10 +45,10 @@ class ListView extends Component {
 				</div>
 			);
 		};
+
 		const RowRenderer = ({ row, idx }) => {
-			const { name, img } = row;
 			return (
-				<Panel key={idx} title={`${name}`}>
+				<Panel key={idx}>
 					<div
 						style={{
 							display: 'flex',
@@ -60,47 +56,84 @@ class ListView extends Component {
 							flexWrap: 'nowrap'
 						}}
 					>
-						<img src={img} className="pull-left" alt={name} height="100" width="100" />
+						<img src={row.img} className="pull-left" alt={row.name} height="100" width="100" />
 						<Contact {...row} />
 						<GradeOptions />
 					</div>
 				</Panel>
 			);
 		};
-		const defaultColumnProperties = {
-			width: 160
-		};
 
 		const columns = [
 			{
 				key: 'id',
 				name: '',
-				width: -1,
+				width: 100,
 				hidden: true
 			},
 			{
-				key: 'name',
+				key: 'es',
 				name: '',
-				width: -1,
+				width: 100,
 				hidden: true
 			},
 			{
-				key: 'Class',
+				key: 'ds',
 				name: '',
-				width: -1,
+				width: 100,
 				hidden: true
 			},
 			{
-				key: 'img',
+				key: 'cap',
 				name: '',
-				width: -1,
+				width: 100,
 				hidden: true
 			},
 			{
-				key: 'grade',
-				name: 'not yet introduced'
+				key: 'id',
+				name: '',
+				width: 100,
+				hidden: true
+			},
+			{
+				key: 'es',
+				name: '',
+				width: 100,
+				hidden: true
+			},
+			{
+				key: 'ds',
+				name: '',
+				width: 100,
+				hidden: true
+			},
+			{
+				key: 'cap',
+				name: '',
+				width: 160,
+				hidden: true
+			},
+			{
+				key: 'nyi',
+				name: 'Not Yet Introduced',
+				width: 160
+			},
+			{
+				key: 'es',
+				name: 'Emerging Skill',
+				width: 150
+			},
+			{
+				key: 'ds',
+				name: 'Developing Skill',
+				width: 145
+			},
+			{
+				key: 'cap',
+				name: 'Capable',
+				width: 140
 			}
-		].map((c) => ({ ...c, ...defaultColumnProperties }));
+		].map((c) => ({ ...c }));
 
 		const SearchedList = items.filter((item) => {
 			if (searchKeyword == null) return item;
@@ -120,7 +153,6 @@ class ListView extends Component {
 						columns={columns}
 						rowGetter={(i) => SearchedList[i]}
 						rowsCount={ROW_COUNT}
-						minHeight={700}
 						minWidth={'100%'}
 						rowRenderer={RowRenderer}
 						rowHeight={ROW_HEIGHT}
