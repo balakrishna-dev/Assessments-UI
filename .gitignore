@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-
 /.pnp
 .pnp.js
 
@@ -12,8 +11,6 @@
 
 # production
 /build
-
-.gitignore
 /package-lock.json
 
 # misc

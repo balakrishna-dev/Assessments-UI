@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDataGrid from 'react-data-grid';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import MenuItem from 'material-ui/MenuItem/MenuItem';
+import IconMenu from 'material-ui/IconMenu';
 import '../styles/css/ListView.css';
 
 class ListView extends Component {
@@ -11,122 +15,86 @@ class ListView extends Component {
 		const ROW_HEIGHT = 200;
 		const Panel = ({ children }) => {
 			return (
-				<div className="panel panel-default" style={{ margin: 10 }}>
-					<div className="panel-body" style={{ padding: 0 }}>
-						{children}
-					</div>
+				<div className="panel panel-default">
+					<div className="panel-body">{children}</div>
 				</div>
 			);
 		};
-		const Contact = ({ name, Class }) => {
+		const Details = ({ name, Class }) => {
 			return (
-				<address style={{ paddingLeft: 50, paddingTop: 30 }}>
+				<div className="panel-details">
 					<strong>{name}</strong>
 					<br />
 					{Class}
-				</address>
+				</div>
 			);
 		};
 		const GradeOptions = () => {
 			return (
-				<div style={{ position: 'absolute', justifyContent: 'center', left: 800, margin: '30px 0px 20px 0px' }}>
-					<label className="radio-inline">
+				<div className="panel-radio">
+					<label>
 						<input type="radio" name="gradeSelection" />
 					</label>
-					<label className="radio-inline">
+					<label>
 						<input type="radio" name="gradeSelection" />
 					</label>
-					<label className="radio-inline">
+					<label>
 						<input type="radio" name="gradeSelection" />
 					</label>
-					<label className="radio-inline">
+					<label>
 						<input type="radio" name="gradeSelection" />
 					</label>
 				</div>
 			);
 		};
-
+		const MorevertIcon = () => {
+			return (
+				<div>
+					<IconMenu
+						iconButtonElement={
+							<IconButton>
+								<MoreVertIcon color="white" className="morevert-icon" />
+							</IconButton>
+						}
+						style={{ position: 'absolute' }}
+						className="list-icon-menu"
+						targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+						anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+					>
+						<MenuItem primaryText="Term 1" />
+						<MenuItem primaryText="Term 2" />
+					</IconMenu>
+				</div>
+			);
+		};
 		const RowRenderer = ({ row, idx }) => {
 			return (
 				<Panel key={idx}>
-					<div
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							flexWrap: 'nowrap'
-						}}
-					>
-						<img src={row.img} className="pull-left" alt={row.name} height="100" width="100" />
-						<Contact {...row} />
-						<GradeOptions />
+					<div className="img-container">
+						<img src={row.img} alt={row.name} className="panel-image" />
+						<MorevertIcon />
 					</div>
+					<Details {...row} />
+					<GradeOptions />
 				</Panel>
 			);
 		};
 
 		const columns = [
 			{
-				key: 'id',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'es',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'ds',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'cap',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'id',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'es',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'ds',
-				name: '',
-				width: 100,
-				hidden: true
-			},
-			{
-				key: 'cap',
-				name: '',
-				width: 160,
-				hidden: true
-			},
-			{
 				key: 'nyi',
 				name: 'Not Yet Introduced',
-				width: 160
+				width: 140
 			},
 			{
 				key: 'es',
 				name: 'Emerging Skill',
-				width: 150
+				width: 140
 			},
 			{
 				key: 'ds',
 				name: 'Developing Skill',
-				width: 145
+				width: 140
 			},
 			{
 				key: 'cap',
@@ -154,6 +122,7 @@ class ListView extends Component {
 						rowGetter={(i) => SearchedList[i]}
 						rowsCount={ROW_COUNT}
 						minWidth={'100%'}
+						minHeight={700}
 						rowRenderer={RowRenderer}
 						rowHeight={ROW_HEIGHT}
 						headerRowHeight={30}

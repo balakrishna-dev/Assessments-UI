@@ -122,7 +122,7 @@
 		"prestart": "npm run build-css",
 		"build-css": "node-sass-chokidar src/styles/sass -o src/styles/css",
 		"watch-css": "npm run build-css && node-sass-chokidar src/styles/sass -o src/styles/css --watch",
-		"start": "react-scripts start",
+		"start": "react-scripts start ",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

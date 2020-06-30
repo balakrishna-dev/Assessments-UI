@@ -1,0 +1,17 @@
+.card-container {
+	margin: 5% 2%;
+}
+.icon-menu {
+	top: 0px;
+	right: 0px;
+	border-top-right-radius: 7%;
+	border-bottom-left-radius: 7%;
+	background-color: #100f0f99;
+}
+
+@media only screen and (max-width: 768px) {
+	.icon-menu {
+		height: 42px;
+		width: 42px;
+	}
+}

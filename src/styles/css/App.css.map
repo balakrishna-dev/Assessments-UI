@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "AAAA,AAAA,UAAU,CAAC;EACV,OAAO,EAAE,GAAG;EACZ,KAAK,EAAE,IAAI;CACX",
     "sources": [
-        "../sass/App.scss"
+        "../scss/App.scss"
     ],
     "names": [],
     "file": "App.css"

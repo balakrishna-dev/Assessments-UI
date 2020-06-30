@@ -1,0 +1,65 @@
+.search-button {
+  border-color: white;
+  font-style: white;
+}
+
+.body-container {
+  background: #f7f4f4;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  margin: 0% 15% 0% 15%;
+}
+
+.menu-container h4 {
+  margin: 50px 0px 10px 0px;
+  color: black;
+}
+
+.menu-container h1 {
+  margin: 30% 0 0 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #333232;
+}
+
+.empty-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.empty-container h1 {
+  margin: 300px auto 0% auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.menu-buttons {
+  text-transform: none;
+  width: 100%;
+}
+
+.small-names {
+  font-size: 12;
+  font-weight: 400;
+}
+/*# sourceMappingURL=Assessments.css.map */

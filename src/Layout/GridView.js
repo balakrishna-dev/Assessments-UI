@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { GridList } from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
-import Card from './Card';
+import CustomCard from './CustomCard';
 import '../styles/css/GridView.css';
 
 class GridView extends Component {
@@ -11,7 +11,7 @@ class GridView extends Component {
 		const GridViewList = () => {
 			return (
 				<div className="wrapper">
-					<GridList cols={5} className="box" style={{ margin: '0' }}>
+					<GridList cols={5} className="box1" cellHeight="auto" padding={0}>
 						{SearchedList}
 					</GridList>
 				</div>
@@ -24,7 +24,15 @@ class GridView extends Component {
 				return null;
 			})
 			.map((item) => {
-				return <Card key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />;
+				return (
+					<CustomCard
+						key={item.id}
+						style={{ height: 'auto' }}
+						title={item.name}
+						subTitle={item.Class}
+						imgSrc={item.img}
+					/>
+				);
 			});
 		return (
 			<div>

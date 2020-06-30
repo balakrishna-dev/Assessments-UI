@@ -1,4 +1,4 @@
-# Assosciates-ui-frontend
+# Assessments-ui-frontend
 
 # Install All Dependencies
 npm i or yarn install

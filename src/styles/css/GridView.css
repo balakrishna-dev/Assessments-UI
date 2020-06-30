@@ -1,15 +1,20 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: 100% 100% 100%;
-  grid-template-rows: 100% 100% 100%;
-  grid-gap: 200px;
-  max-width: 100%;
-  max-height: 100%; }
+  background-color: #e1e4e4;
+  height: 180vh;
+}
 
-.box {
-  padding: 25px;
-  background-color: #e1e4e4; }
+.box1 {
+  padding: 2%;
+  margin: 0px;
+  overflow-x: hidden;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 
 .header {
   margin-left: 50px;
-  margin-top: 30px; }
+  margin-top: 30px;
+}
+/*# sourceMappingURL=GridView.css.map */
