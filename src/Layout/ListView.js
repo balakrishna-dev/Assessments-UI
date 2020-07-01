@@ -123,8 +123,7 @@ class ListView extends Component {
 						columns={columns}
 						rowGetter={(i) => SearchedList[i]}
 						rowsCount={ROW_COUNT}
-						minWidth={'100%'}
-						minHeight={700}
+						minHeight={630}
 						rowRenderer={RowRenderer}
 						rowHeight={ROW_HEIGHT}
 						headerRowHeight={30}

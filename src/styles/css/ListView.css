@@ -2,6 +2,10 @@
   margin: 20px;
 }
 
+.react-grid-Container {
+  width: 100%;
+}
+
 .react-grid-Grid {
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -111,18 +115,26 @@
   left: 2px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .panel-radio {
-    right: 10%;
+    right: 13%;
   }
   .panel-radio input[type=radio] {
-    margin-left: 100px;
+    margin-left: 120px;
+  }
+  .react-grid-Header {
+    left: 41%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .panel-radio {
+    right: 9%;
+  }
+  .panel-radio input[type=radio] {
+    margin-left: 110px;
   }
   .react-grid-Header {
     left: 32%;
-  }
-  .react-grid-HeaderCell {
-    position: absolute;
-    width: 100px;
   }
 }
