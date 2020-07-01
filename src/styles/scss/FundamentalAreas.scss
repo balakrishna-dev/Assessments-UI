@@ -1,21 +1,44 @@
-.title {
-	margin-top: 10px;
-	font-size: 25px;
-	font-weight: 500px;
+@import 'config';
+
+.fundamental-container {
+	svg {
+		fill: $primary-color !important;
+	}
 }
 
-.search-box {
-	width: 200px;
-	color: white;
+.fundamental-title {
+	margin-top: 10px;
+	font-size: 25px;
+	line-height: normal;
 }
 
 .sub-title {
 	font-size: small;
-	font-weight: 500px;
+	line-height: normal;
+}
+
+.right-icons {
+	button {
+		margin-right: 20px !important;
+	}
+	.search-box {
+		width: 200px !important;
+		height: 35px !important;
+		margin-right: 10px !important;
+		color: white !important;
+
+		input[type= "text"] {
+			color: white !important;
+		}
+
+		hr {
+			border-color: white !important;
+		}
+	}
 }
 
 @media (max-width: 768px) {
-	.title {
+	.fundamental-title {
 		font-size: 18px;
 		margin-top: 15px;
 	}

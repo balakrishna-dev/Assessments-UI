@@ -1,29 +1,59 @@
-$white: white;
+@import 'config';
 
 .search-button {
-	border-color: $white;
-	font-style: $white;
+	border-color: $primary-color;
+	font-style: $primary-color;
 }
+
+.assessments-title {
+	margin-top: 17px;
+	line-height: normal;
+
+	a {
+		color: $primary-color;
+	}
+}
+
 .body-container {
-	background: rgb(247, 244, 244);
+	background: $secondary-background-color;
 	position: relative;
 	height: 100%;
 	width: 100%;
 }
+
+.toolbar {
+	background: $primary-color !important;
+	padding: 0 !important;
+
+	&-item {
+		flex: 1;
+
+		&-content {
+			margin-left: 7%;
+			line-height: 1;
+		}
+	}
+	&-separator {
+		margin: 0 !important;
+		height: auto !important;
+	}
+}
+
 .menu-container {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	margin: 0% 15% 0% 15%;
+	width: 70%;
+	margin: 0 auto;
 
 	h4 {
-		margin: 50px 0px 10px 0px;
-		color: black;
+		margin: 50px 0px 10px;
 	}
 	h1 {
-		margin: 30% 0 0 0;
-		align-self: center;
-		color: #333232;
+		margin: 30% 0;
+	}
+
+	.menu-toolbar-separator {
+		height: 1px !important;
 	}
 }
 .empty-container {
@@ -31,16 +61,10 @@ $white: white;
 	flex-direction: column;
 	height: 100vh;
 	h1 {
-		margin: 300px auto 0% auto;
-		align-self: center;
+		margin: 300px auto;
 	}
 }
 .menu-buttons {
 	text-transform: none;
 	width: 100%;
-}
-
-.small-names {
-	font-size: 12;
-	font-weight: 400;
 }

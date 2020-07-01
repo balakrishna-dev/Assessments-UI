@@ -32,12 +32,9 @@ class Assessments extends Component {
 				<MuiThemeProvider>
 					<div>
 						<AppBar
-							titleStyle={{ lineHeight: 'normal' }}
 							title={
-								<div style={{ marginTop: 18, fontWeight: 500 }}>
-									<Link to="/Assessments" style={{ textDecoration: 'none', color: 'white' }}>
-										Assessments
-									</Link>
+								<div className="assessments-title">
+									<Link to="/Assessments">Assessments</Link>
 								</div>
 							}
 							iconElementLeft={
@@ -47,10 +44,10 @@ class Assessments extends Component {
 							}
 						/>
 						<div className="body-container">
-							<Toolbar style={{ background: 'white', padding: 0 }}>
-								<ToolbarGroup style={{ flex: 1 }}>
-									<div style={{ marginLeft: '7%', lineHeight: 1 }}>
-										<h6 className="small">PROGRAM</h6>
+							<Toolbar className="toolbar">
+								<ToolbarGroup className="toolbar-item">
+									<div className="toolbar-item-content">
+										<h6>PROGRAM</h6>
 										<h4>{this.state.programValue}</h4>
 									</div>
 									<div>
@@ -69,10 +66,10 @@ class Assessments extends Component {
 										</IconMenu>
 									</div>
 								</ToolbarGroup>
-								<ToolbarSeparator style={{ margin: 0, height: 'auto' }} />
-								<ToolbarGroup style={{ flex: 1 }}>
-									<div style={{ marginLeft: '7%', lineHeight: 1 }}>
-										<h6 className="small">TERM</h6>
+								<ToolbarSeparator className="toolbar-separator" />
+								<ToolbarGroup className="toolbar-item">
+									<div className="toolbar-item-content">
+										<h6>TERM</h6>
 										<h4>{this.state.termValue}</h4>
 									</div>
 									<div>
@@ -110,7 +107,7 @@ class Assessments extends Component {
 										label="Moving and Handling"
 										componentName="MovingAndHandling"
 									/>
-									<ToolbarSeparator style={{ height: 1 }} />
+									<ToolbarSeparator className="menu-toolbar-separator" />
 									<MenuItemButton
 										{...this.props}
 										label="Health & Self Care"
@@ -124,16 +121,16 @@ class Assessments extends Component {
 										label="Language Arts"
 										componentName="LanguageArts"
 									/>
-									<ToolbarSeparator style={{ height: 1 }} />
+									<ToolbarSeparator className="menu-toolbar-separator" />
 
 									<MenuItemButton {...this.props} label="Writing" componentName="Writing" />
 
-									<ToolbarSeparator style={{ height: 1 }} />
+									<ToolbarSeparator className="menu-toolbar-separator" />
 
 									<MenuItemButton {...this.props} label="Reading" componentName="Reading" />
-									<ToolbarSeparator style={{ height: 1 }} />
+									<ToolbarSeparator className="menu-toolbar-separator" />
 									<MenuItemButton {...this.props} label="Mathematics" componentName="Mathematics" />
-									<ToolbarSeparator style={{ height: 1 }} />
+									<ToolbarSeparator className="menu-toolbar-separator" />
 									<MenuItemButton
 										{...this.props}
 										label="Understanding the World"

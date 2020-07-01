@@ -12,13 +12,10 @@ const StudentCard = (props) => {
 		<IconMenu
 			iconButtonElement={
 				<IconButton>
-					<MoreVertIcon color="white" />
+					<MoreVertIcon />
 				</IconButton>
 			}
 			className="icon-menu"
-			style={{
-				position: 'absolute'
-			}}
 			targetOrigin={{ horizontal: 'right', vertical: 'top' }}
 			anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
 		>
@@ -28,13 +25,12 @@ const StudentCard = (props) => {
 	);
 	return (
 		<Card className="card-container">
-			<div style={{ paddingBottom: 0, position: 'relative' }}>
-				<CardMedia style={{ padding: 0, margin: 0 }}>
-					<img src={imgSrc} alt={title} height="200" width="100" />
+			<div className="card-body">
+				<CardMedia>
+					<img src={imgSrc} alt={title} />
 				</CardMedia>
 				<MorevertIcon />
-
-				<CardTitle title={title} subtitle={subTitle} style={{ paddingLeft: 10, paddingTop: 5 }} />
+				<CardTitle title={title} subtitle={subTitle} />
 			</div>
 		</Card>
 	);

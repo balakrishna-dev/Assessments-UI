@@ -1,11 +1,10 @@
 .wrapper {
   background-color: #e1e4e4;
-  height: 180vh;
+  height: 130vh;
 }
 
-.box1 {
+.grid-box {
   padding: 2%;
-  margin: 0px;
   overflow-x: hidden;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -17,4 +16,3 @@
   margin-left: 50px;
   margin-top: 30px;
 }
-/*# sourceMappingURL=GridView.css.map */

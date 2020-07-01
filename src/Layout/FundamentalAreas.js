@@ -33,14 +33,6 @@ class FundamentalAreas extends Component {
 	}
 
 	render() {
-		const styles = {
-			underlineStyle: {
-				borderColor: 'white'
-			},
-			textStyle: {
-				color: 'white'
-			}
-		};
 		const handleBack = () => {
 			this.state.gridView
 				? this.setState({ gridView: false, search: false })
@@ -61,7 +53,7 @@ class FundamentalAreas extends Component {
 			<IconMenu
 				iconButtonElement={
 					<IconButton>
-						<MoreVertIcon color="white" />
+						<MoreVertIcon />
 					</IconButton>
 				}
 				targetOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -76,12 +68,11 @@ class FundamentalAreas extends Component {
 		return (
 			<div>
 				<MuiThemeProvider>
-					<div>
+					<div className="fundamental-container">
 						<AppBar
-							titleStyle={{ lineHeight: 'normal' }}
 							title={
 								<div>
-									<div className="title">Personal, Social, Emotional Development</div>
+									<div className="fundamental-title">Personal, Social, Emotional Development</div>
 									<div className="sub-title">Fundamental Areas of Development</div>
 								</div>
 							}
@@ -91,27 +82,26 @@ class FundamentalAreas extends Component {
 								</IconButton>
 							}
 							iconElementRight={
-								<div>
-									{this.state.search ? (
-										<TextField
-											type="text"
-											style={{ width: 200, height: 35, marginRight: 10 }}
-											// className="search-box"
-											hintText="Search here..."
-											hintStyle={styles.textStyle}
-											underlineFocusStyle={styles.underlineStyle}
-											onChange={handleSearchWord}
-										/>
-									) : (
-										<IconButton style={{ paddingRight: 70 }}>
-											<ActionSearch color="white" onClick={handleSearch} />
+								<span>
+									<span className="right-icons">
+										{this.state.search ? (
+											<TextField
+												type="text"
+												className="search-box"
+												hintText="Search here..."
+												onChange={handleSearchWord}
+											/>
+										) : (
+											<IconButton>
+												<ActionSearch onClick={handleSearch} />
+											</IconButton>
+										)}
+										<IconButton>
+											<ActionDone />
 										</IconButton>
-									)}
-									<IconButton style={{ paddingRight: 70 }}>
-										<ActionDone color="white" />
-									</IconButton>
+									</span>
 									<MorevertIcon />
-								</div>
+								</span>
 							}
 						/>
 

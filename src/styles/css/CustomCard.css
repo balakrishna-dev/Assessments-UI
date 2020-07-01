@@ -2,7 +2,22 @@
   margin: 5% 2%;
 }
 
+.card-container svg {
+  fill: white !important;
+}
+
+.card-body {
+  padding-bottom: 0px;
+  position: relative;
+}
+
+.card-body img {
+  height: 200px;
+  width: 100px;
+}
+
 .icon-menu {
+  position: absolute !important;
   top: 0px;
   right: 0px;
   border-top-right-radius: 7%;
@@ -16,4 +31,3 @@
     width: 42px;
   }
 }
-/*# sourceMappingURL=CustomCard.css.map */

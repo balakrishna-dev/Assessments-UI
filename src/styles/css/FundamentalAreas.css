@@ -1,23 +1,40 @@
-.title {
-  margin-top: 10px;
-  font-size: 25px;
-  font-weight: 500px;
+.fundamental-container svg {
+  fill: white !important;
 }
 
-.search-box {
-  width: 200px;
-  color: white;
+.fundamental-title {
+  margin-top: 10px;
+  font-size: 25px;
+  line-height: normal;
 }
 
 .sub-title {
   font-size: small;
-  font-weight: 500px;
+  line-height: normal;
+}
+
+.right-icons button {
+  margin-right: 20px !important;
+}
+
+.right-icons .search-box {
+  width: 200px !important;
+  height: 35px !important;
+  margin-right: 10px !important;
+  color: white !important;
+}
+
+.right-icons .search-box input[type="text"] {
+  color: white !important;
+}
+
+.right-icons .search-box hr {
+  border-color: white !important;
 }
 
 @media (max-width: 768px) {
-  .title {
+  .fundamental-title {
     font-size: 18px;
     margin-top: 15px;
   }
 }
-/*# sourceMappingURL=FundamentalAreas.css.map */

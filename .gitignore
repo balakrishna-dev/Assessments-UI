@@ -12,6 +12,9 @@
 # production
 /build
 /package-lock.json
+/yarn.lock
+.gitignore
+
 
 # misc
 .DS_Store

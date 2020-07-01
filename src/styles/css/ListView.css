@@ -5,16 +5,16 @@
 .react-grid-Grid {
   padding-bottom: 0px;
   margin-bottom: 0px;
-  background: #ebebeb;
+  background: #e1e4e4;
   border: none;
 }
 
 .react-grid-Header {
-  left: 61%;
+  left: 56.5%;
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background: #ebebeb;
+  background: #e1e4e4;
 }
 
 .react-grid-HeaderCell {
@@ -22,17 +22,17 @@
   width: 140px;
   border: none;
   font-weight: 500;
-  background: #ebebeb;
+  background: #e1e4e4;
 }
 
 .react-grid-Main {
   outline: 0px;
-  background: #ebebeb;
+  background: #e1e4e4;
   border: none;
 }
 
 .react-grid-Canvas {
-  background: #ebebeb;
+  background: #e1e4e4;
 }
 
 .panel {
@@ -52,6 +52,10 @@
           flex-direction: row;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+}
+
+.panel-body svg {
+  fill: white !important;
 }
 
 .img-container {
@@ -122,4 +126,3 @@
     width: 100px;
   }
 }
-/*# sourceMappingURL=ListView.css.map */

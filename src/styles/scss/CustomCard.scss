@@ -1,7 +1,25 @@
+@import 'config';
+
 .card-container {
 	margin: 5% 2%;
+
+	svg {
+		fill: $primary-color !important;
+	}
 }
+
+.card-body {
+	padding-bottom: 0px;
+	position: relative;
+
+	img {
+		height: 200px;
+		width: 100px;
+	}
+}
+
 .icon-menu {
+	position: absolute !important;
 	top: 0px;
 	right: 0px;
 	border-top-right-radius: 7%;

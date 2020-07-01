@@ -11,7 +11,7 @@ class GridView extends Component {
 		const GridViewList = () => {
 			return (
 				<div className="wrapper">
-					<GridList cols={5} className="box1" cellHeight="auto" padding={0}>
+					<GridList cols={5} className="grid-box" cellHeight="auto">
 						{SearchedList}
 					</GridList>
 				</div>
@@ -24,15 +24,7 @@ class GridView extends Component {
 				return null;
 			})
 			.map((item) => {
-				return (
-					<CustomCard
-						key={item.id}
-						style={{ height: 'auto' }}
-						title={item.name}
-						subTitle={item.Class}
-						imgSrc={item.img}
-					/>
-				);
+				return <CustomCard key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />;
 			});
 		return (
 			<div>

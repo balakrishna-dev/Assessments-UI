@@ -53,7 +53,7 @@ class ListView extends Component {
 					<IconMenu
 						iconButtonElement={
 							<IconButton>
-								<MoreVertIcon color="white" className="morevert-icon" />
+								<MoreVertIcon className="morevert-icon" />
 							</IconButton>
 						}
 						style={{ position: 'absolute' }}
@@ -69,14 +69,16 @@ class ListView extends Component {
 		};
 		const RowRenderer = ({ row, idx }) => {
 			return (
-				<Panel key={idx}>
-					<div className="img-container">
-						<img src={row.img} alt={row.name} className="panel-image" />
-						<MorevertIcon />
-					</div>
-					<Details {...row} />
-					<GradeOptions />
-				</Panel>
+				<div id="h">
+					<Panel key={idx}>
+						<div className="img-container">
+							<img src={row.img} alt={row.name} className="panel-image" />
+							<MorevertIcon />
+						</div>
+						<Details {...row} />
+						<GradeOptions />
+					</Panel>
+				</div>
 			);
 		};
 
