@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { GridList } from 'material-ui/GridList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
 import CustomCard from './CustomCard';
@@ -7,17 +6,15 @@ import '../styles/css/GridView.css';
 
 class GridView extends Component {
 	render() {
-		const { isLoading, items, error, searchKeyword } = this.props;
+		const { isLoading, studentsData, error, searchKeyword } = this.props;
 		const GridViewList = () => {
 			return (
 				<div className="wrapper">
-					<GridList cols={5} className="grid-box" cellHeight="auto">
-						{SearchedList}
-					</GridList>
+					<div className="grid-box">{SearchedList}</div>
 				</div>
 			);
 		};
-		const SearchedList = items
+		const SearchedList = studentsData
 			.filter((item) => {
 				if (searchKeyword == null) return item;
 				else if (item.name.toLowerCase().includes(searchKeyword.toLowerCase())) return item;
@@ -31,7 +28,7 @@ class GridView extends Component {
 				{error && <p>{error}</p>}
 				<div className="header">
 					<b>
-						<h4>{items.length} Students</h4>
+						<h4>{studentsData.length} Students</h4>
 					</b>
 				</div>
 
@@ -50,7 +47,7 @@ class GridView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	items: state.students.items
+	studentsData: state.students.studentsData
 });
 
 export default connect(mapStateToProps, null)(GridView);

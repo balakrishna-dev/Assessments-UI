@@ -6,11 +6,17 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import '../styles/css/ListView.css';
+import updateGrade from './Redux/UpdateGradeAction.js';
 
 class ListView extends Component {
 	render() {
-		const { isLoading, items, error, searchKeyword } = this.props;
-		//const gradeHandler = () => {};
+		const { isLoading, studentsData, error, searchKeyword } = this.props;
+		const gradeHandler = (e) => {
+			const grade = e.target.value;
+			const id = e.target.id;
+
+			this.props.updateGrade(grade, id);
+		};
 
 		const ROW_HEIGHT = 200;
 		const Panel = ({ children }) => {
@@ -29,20 +35,42 @@ class ListView extends Component {
 				</div>
 			);
 		};
-		const GradeOptions = () => {
+		const GradeOptions = ({ id }) => {
 			return (
 				<div className="panel-radio">
 					<label>
-						<input type="radio" name="gradeSelection" />
+						<input
+							type="radio"
+							name="gradeSelection"
+							value="Not Yet Introduced"
+							id={id}
+							onChange={gradeHandler}
+						/>
+						<span className="check-mark" />
 					</label>
 					<label>
-						<input type="radio" name="gradeSelection" />
+						<input
+							type="radio"
+							name="gradeSelection"
+							value="Emerging Skill"
+							id={id}
+							onChange={gradeHandler}
+						/>
+						<span className="check-mark" />
 					</label>
 					<label>
-						<input type="radio" name="gradeSelection" />
+						<input
+							type="radio"
+							name="gradeSelection"
+							value="Developing Skill"
+							id={id}
+							onChange={gradeHandler}
+						/>
+						<span className="check-mark" />
 					</label>
 					<label>
-						<input type="radio" name="gradeSelection" />
+						<input type="radio" name="gradeSelection" value="Capable" id={id} onChange={gradeHandler} />
+						<span className="check-mark" />
 					</label>
 				</div>
 			);
@@ -56,7 +84,6 @@ class ListView extends Component {
 								<MoreVertIcon className="morevert-icon" />
 							</IconButton>
 						}
-						style={{ position: 'absolute' }}
 						className="list-icon-menu"
 						targetOrigin={{ horizontal: 'right', vertical: 'top' }}
 						anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -69,16 +96,14 @@ class ListView extends Component {
 		};
 		const RowRenderer = ({ row, idx }) => {
 			return (
-				<div id="h">
-					<Panel key={idx}>
-						<div className="img-container">
-							<img src={row.img} alt={row.name} className="panel-image" />
-							<MorevertIcon />
-						</div>
-						<Details {...row} />
-						<GradeOptions />
-					</Panel>
-				</div>
+				<Panel key={idx}>
+					<div className="img-container">
+						<img src={row.img} alt={row.name} className="panel-image" />
+						<MorevertIcon />
+					</div>
+					<Details {...row} />
+					<GradeOptions {...row} />
+				</Panel>
 			);
 		};
 
@@ -104,8 +129,7 @@ class ListView extends Component {
 				width: 140
 			}
 		].map((c) => ({ ...c }));
-
-		const SearchedList = items.filter((item) => {
+		const SearchedList = studentsData.filter((item) => {
 			if (searchKeyword == null) return item;
 			else if (item.name.toLowerCase().includes(searchKeyword.toLowerCase())) return item;
 			return null;
@@ -116,14 +140,14 @@ class ListView extends Component {
 			<div>
 				{error ? <p>{error}</p> : null}
 				<div className="count">
-					<h4>{items.length} Students</h4>
+					<h4>{studentsData.length} Students</h4>
 				</div>
 				{!isLoading ? (
 					<ReactDataGrid
 						columns={columns}
 						rowGetter={(i) => SearchedList[i]}
 						rowsCount={ROW_COUNT}
-						minHeight={630}
+						minHeight={700}
 						rowRenderer={RowRenderer}
 						rowHeight={ROW_HEIGHT}
 						headerRowHeight={30}
@@ -137,7 +161,7 @@ class ListView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	items: state.students.items
+	studentsData: state.students.studentsData
 });
 
-export default connect(mapStateToProps, null)(ListView);
+export default connect(mapStateToProps, { updateGrade })(ListView);

@@ -2,13 +2,15 @@
 
 .wrapper {
 	background-color: $secondary-background-color;
-	height: 130vh;
+	position: relative;
 }
 
 .grid-box {
-	padding: 2%;
-	overflow-x: hidden;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-template-rows: auto;
+	grid-gap: 1%;
+	padding: 1%;
 }
 
 .header {

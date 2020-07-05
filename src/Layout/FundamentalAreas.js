@@ -117,7 +117,7 @@ class FundamentalAreas extends Component {
 	}
 }
 const mapStateToProps = (state) => ({
-	items: state.students.items
+	items: state.students.studentsData
 });
 
 export default connect(mapStateToProps, { fetchStudentData })(FundamentalAreas);

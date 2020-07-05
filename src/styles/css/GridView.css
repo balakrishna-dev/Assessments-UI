@@ -1,15 +1,17 @@
 .wrapper {
   background-color: #e1e4e4;
-  height: 130vh;
+  position: relative;
 }
 
 .grid-box {
-  padding: 2%;
-  overflow-x: hidden;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(180px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 1%;
+  padding: 1%;
 }
 
 .header {

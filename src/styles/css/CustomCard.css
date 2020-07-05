@@ -1,5 +1,6 @@
 .card-container {
-  margin: 5% 2%;
+  margin: 1% 0;
+  width: 180px;
 }
 
 .card-container svg {

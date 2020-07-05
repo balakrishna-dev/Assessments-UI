@@ -16,7 +16,7 @@
 }
 
 .react-grid-Header {
-	left: 56.5%;
+	left: 60%;
 	outline: none;
 	box-shadow: none;
 	background: $secondary-background-color;
@@ -73,14 +73,15 @@
 	}
 
 	input[type=radio] {
-		margin-left: 130px;
+		margin-left: 120px;
 		border: 0px;
-		width: 16px;
-		height: 2em;
+		width: 20px;
+		height: 2.1em;
 	}
 }
 
 .list-icon-menu {
+	position: absolute !important;
 	top: 0;
 	left: 70px;
 	height: 30px;
@@ -98,20 +99,20 @@
 
 @media only screen and (max-width: 1024px) {
 	.panel-radio {
-		right: 13%;
+		right: 10%;
 		input[type=radio] {
-			margin-left: 120px;
+			margin-left: 110px;
 		}
 	}
 
 	.react-grid-Header {
-		left: 41%;
+		left: 44%;
 	}
 }
 
 @media only screen and (max-width: 768px) {
 	.panel-radio {
-		right: 9%;
+		right: 8%;
 		input[type=radio] {
 			margin-left: 110px;
 		}
