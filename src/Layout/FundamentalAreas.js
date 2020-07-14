@@ -15,7 +15,7 @@ import DownloadIcon from 'material-ui/svg-icons/action/get-app';
 import UploadIcon from 'material-ui/svg-icons/editor/publish';
 import GridView from './GridView';
 import fetchStudentData from './Redux/StudentsActions';
-import ListView from './ListView';
+import Sample1ListView from './Sample1ListView';
 import '../styles/css/FundamentalAreas.css';
 import StudentsData from './StudentsData';
 import Sample2ListView from './Sample2ListView';
@@ -109,7 +109,7 @@ class FundamentalAreas extends Component {
 						{this.state.gridView ? (
 							<GridView searchKeyword={this.state.searchKeyword} />
 						) : (
-							// <ListView searchKeyword={this.state.searchKeyword} />
+							//<Sample1ListView searchKeyword={this.state.searchKeyword} />
 							<Sample2ListView searchKeyword={this.state.searchKeyword} />
 						)}
 					</div>

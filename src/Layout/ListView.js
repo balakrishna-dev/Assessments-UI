@@ -5,17 +5,10 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import updateGrade from './Redux/UpdateGradeAction.js';
 import '../styles/css/ListView.css';
 
 class ListView extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			comment: false
-		};
-	}
 	render() {
 		const { students, searchKeyword } = this.props;
 		const { isLoading, studentsData, error } = students;
@@ -177,7 +170,7 @@ class ListView extends Component {
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
-				<div className="header">
+				{/* <div className="header">
 					<span className="header-left">{studentsData.length} Students</span>
 					{this.state.comment ? (
 						<span className="header-right">
@@ -194,7 +187,7 @@ class ListView extends Component {
 							</IconButton>
 						</span>
 					)}
-				</div>
+				</div> */}
 				{!isLoading ? (
 					<ReactDataGrid
 						columns={columns}

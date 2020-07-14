@@ -22,7 +22,6 @@ class Sample2ListView extends Component {
 					...prevState,
 					dropDownView: !prevState.dropDownView
 				};
-				console.log(this.state);
 			});
 		};
 		return (
@@ -35,13 +34,13 @@ class Sample2ListView extends Component {
 					<div className="body-container">
 						{this.state.dropDownView ? (
 							<div>
-								<span>Plays with children</span>
+								<span className="sample2-heading">Plays with children</span>
 								<span>
 									<IconButton className="icon-buttons" onClick={handleComponent}>
 										<NavigationExpandMoreIcon className="navigation" />
 									</IconButton>
 								</span>
-								<ListView />
+								<ListView {...searchKeyword} />
 							</div>
 						) : (
 							<RaisedButton

@@ -327,11 +327,21 @@
   text-transform: none !important;
 }
 
+.sample2-heading {
+  position: absolute;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .icon-buttons {
   float: right;
+  right: 15px;
 }
 
 .icon-buttons .navigation {
   margin: 0px !important;
   fill: #797878 !important;
+  height: 30px !important;
+  width: 30px !important;
 }
