@@ -18,6 +18,7 @@ import fetchStudentData from './Redux/StudentsActions';
 import ListView from './ListView';
 import '../styles/css/FundamentalAreas.css';
 import StudentsData from './StudentsData';
+import Sample2ListView from './Sample2ListView';
 
 class FundamentalAreas extends Component {
 	constructor(props) {
@@ -108,7 +109,8 @@ class FundamentalAreas extends Component {
 						{this.state.gridView ? (
 							<GridView searchKeyword={this.state.searchKeyword} />
 						) : (
-							<ListView searchKeyword={this.state.searchKeyword} />
+							// <ListView searchKeyword={this.state.searchKeyword} />
+							<Sample2ListView searchKeyword={this.state.searchKeyword} />
 						)}
 					</div>
 				</MuiThemeProvider>

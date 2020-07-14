@@ -5,16 +5,38 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MenuItem from 'material-ui/MenuItem/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
-import '../styles/css/ListView.css';
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import updateGrade from './Redux/UpdateGradeAction.js';
+import '../styles/css/ListView.css';
 
 class ListView extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			comment: false
+		};
+	}
 	render() {
-		const { isLoading, studentsData, error, searchKeyword } = this.props;
+		const { students, searchKeyword } = this.props;
+		const { isLoading, studentsData, error } = students;
+		console.log(students);
+		const findGrade = (e) => {
+			switch (e.target.id.slice(-1)) {
+				case '1':
+					return 'Not Yet Introduced';
+				case '2':
+					return 'Emerging Skill';
+				case '3':
+					return 'Developing Skill';
+				case '4':
+					return 'Capable';
+				default:
+					return '';
+			}
+		};
 		const gradeHandler = (e) => {
-			const grade = e.target.value;
-			const id = e.target.id;
-
+			const grade = findGrade(e);
+			const id = e.target.id.slice(0, -1);
 			this.props.updateGrade(grade, id);
 		};
 
@@ -35,43 +57,60 @@ class ListView extends Component {
 				</div>
 			);
 		};
-		const GradeOptions = ({ id }) => {
+		const GradeOptions = ({ id, grade }) => {
 			return (
 				<div className="panel-radio">
-					<label>
+					<div className="inputGroup">
 						<input
 							type="radio"
-							name="gradeSelection"
-							value="Not Yet Introduced"
-							id={id}
+							name={id + 'gradeSelection'}
+							value={grade}
+							id={id + '1'}
 							onChange={gradeHandler}
+							checked={grade === 'Not Yet Introduced'}
 						/>
-						<span className="check-mark" />
-					</label>
-					<label>
+						<label htmlFor={id + '1'} />
+					</div>
+					<div className="inputGroup">
 						<input
 							type="radio"
-							name="gradeSelection"
-							value="Emerging Skill"
-							id={id}
+							name={id + 'gradeSelection'}
+							value={grade}
+							id={id + '2'}
 							onChange={gradeHandler}
+							checked={grade === 'Emerging Skill'}
 						/>
-						<span className="check-mark" />
-					</label>
-					<label>
+						<label htmlFor={id + '2'} />
+					</div>
+					<div className="inputGroup">
 						<input
 							type="radio"
-							name="gradeSelection"
-							value="Developing Skill"
-							id={id}
+							name={id + 'gradeSelection'}
+							value={studentsData.filter((student) => {
+								if (student.id === id) return student.grade;
+								return '';
+							})}
+							id={id + '3'}
 							onChange={gradeHandler}
+							checked={grade === 'Developing Skill'}
 						/>
-						<span className="check-mark" />
-					</label>
-					<label>
-						<input type="radio" name="gradeSelection" value="Capable" id={id} onChange={gradeHandler} />
-						<span className="check-mark" />
-					</label>
+						<label htmlFor={id + '3'}> </label>
+					</div>
+
+					<div className="inputGroup">
+						<input
+							type="radio"
+							name={id + 'gradeSelection'}
+							value={studentsData.filter((student) => {
+								if (student.id === id) return student.grade;
+								return '';
+							})}
+							id={id + '4'}
+							onChange={gradeHandler}
+							checked={grade === 'Capable'}
+						/>
+						<label htmlFor={id + '4'} />
+					</div>
 				</div>
 			);
 		};
@@ -134,13 +173,27 @@ class ListView extends Component {
 			else if (item.name.toLowerCase().includes(searchKeyword.toLowerCase())) return item;
 			return null;
 		});
-
 		const ROW_COUNT = SearchedList.length;
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
-				<div className="count">
-					<h4>{studentsData.length} Students</h4>
+				<div className="header">
+					<span className="header-left">{studentsData.length} Students</span>
+					{this.state.comment ? (
+						<span className="header-right">
+							Comments if any
+							<IconButton>
+								<NavigationExpandMoreIcon className="navigation" />
+							</IconButton>
+						</span>
+					) : (
+						<span className="header-right">
+							Plays with children
+							<IconButton>
+								<NavigationExpandMoreIcon className="navigation" />
+							</IconButton>
+						</span>
+					)}
 				</div>
 				{!isLoading ? (
 					<ReactDataGrid
@@ -161,7 +214,7 @@ class ListView extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	studentsData: state.students.studentsData
+	students: state.students
 });
 
 export default connect(mapStateToProps, { updateGrade })(ListView);

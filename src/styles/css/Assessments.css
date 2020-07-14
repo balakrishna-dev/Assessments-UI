@@ -83,3 +83,27 @@
   text-transform: none;
   width: 100%;
 }
+
+.menu-buttons button {
+  height: 50px !important;
+  text-align: start !important;
+}
+
+.menu-buttons button div {
+  height: 55px !important;
+}
+
+.menu-buttons button span {
+  position: absolute !important;
+  padding: 9px 8px;
+}
+
+.menu-buttons label {
+  font-size: 15px;
+  text-transform: none;
+}
+
+.menu-buttons svg {
+  float: right;
+  margin: 15px 0;
+}

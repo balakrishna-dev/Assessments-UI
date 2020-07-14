@@ -12,15 +12,7 @@ const MenuItemButton = (props) => {
 				className="menu-buttons"
 				label={props.label}
 				onClick={handleComponent}
-				buttonStyle={{
-					height: 50,
-					textAlign: 'start'
-				}}
-				labelStyle={{
-					fontSize: 15,
-					textTransform: 'none'
-				}}
-				icon={<NavigationNext style={{ float: 'right', marginTop: 4 }} />}
+				icon={<NavigationNext className="navigation-buttton" />}
 			/>
 		</div>
 	);

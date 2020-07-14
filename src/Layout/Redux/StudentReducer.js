@@ -24,7 +24,7 @@ function studentReducer(state = initialState, action) {
 			return {
 				...state,
 				studentsData: state.studentsData.map((student) => {
-					if (student.id == action.payload.id) {
+					if (student.id.toString() === action.payload.id.toString()) {
 						return {
 							...student,
 							grade: action.payload.grade
@@ -33,6 +33,10 @@ function studentReducer(state = initialState, action) {
 					return { ...student };
 				})
 			};
+		// 			let id = action.payload.id;
+		//   return Object.assign({}, state, {
+		//     [id]: Object.assign({}, state[id], { grade: action.payload.grade })
+		//   });
 		default:
 			return { ...state };
 	}

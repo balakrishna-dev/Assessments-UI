@@ -1,0 +1,21 @@
+@import "Assessments";
+@import "ListView";
+
+.menu-buttons {
+	.navigation {
+		margin: 15px !important;
+		fill: #797878 !important;
+	}
+	span {
+		font-size: 16px !important;
+		font-weight: 600 !important;
+		text-transform: none !important;
+	}
+}
+.icon-buttons {
+	float: right;
+	.navigation {
+		margin: 0px !important;
+		fill: #797878 !important;
+	}
+}
