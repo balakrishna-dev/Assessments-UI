@@ -14,11 +14,12 @@ import GridIcon from 'material-ui/svg-icons/editor/border-all';
 import DownloadIcon from 'material-ui/svg-icons/action/get-app';
 import UploadIcon from 'material-ui/svg-icons/editor/publish';
 import GridView from './GridView';
-import fetchStudentData from './Redux/StudentsActions';
+import { fetchStudentsData } from './Redux/StudentsActions';
 import Sample1ListView from './Sample1ListView';
 import '../styles/css/FundamentalAreas.css';
 import StudentsData from './StudentsData';
 import Sample2ListView from './Sample2ListView';
+import Sample3ListView from './Sample3ListView';
 
 class FundamentalAreas extends Component {
 	constructor(props) {
@@ -30,14 +31,14 @@ class FundamentalAreas extends Component {
 		};
 	}
 	componentWillMount() {
-		this.props.fetchStudentData(StudentsData);
+		this.props.fetchStudentsData(StudentsData);
 	}
 
 	render() {
 		const handleBack = () => {
 			this.state.gridView
 				? this.setState({ gridView: false, search: false })
-				: this.props.history.push('./Assessments');
+				: this.props.history.push('/Assessments');
 		};
 
 		const handleGrid = () => {
@@ -107,10 +108,11 @@ class FundamentalAreas extends Component {
 						/>
 
 						{this.state.gridView ? (
-							<GridView searchKeyword={this.state.searchKeyword} />
+							<GridView searchKeyword={this.state.searchKeyword} {...this.props} />
 						) : (
 							//<Sample1ListView searchKeyword={this.state.searchKeyword} />
-							<Sample2ListView searchKeyword={this.state.searchKeyword} />
+							//<Sample2ListView searchKeyword={this.state.searchKeyword} />
+							<Sample3ListView searchKeyword={this.state.searchKeyword} />
 						)}
 					</div>
 				</MuiThemeProvider>
@@ -118,8 +120,4 @@ class FundamentalAreas extends Component {
 		);
 	}
 }
-const mapStateToProps = (state) => ({
-	items: state.students.studentsData
-});
-
-export default connect(mapStateToProps, { fetchStudentData })(FundamentalAreas);
+export default connect(null, { fetchStudentsData })(FundamentalAreas);

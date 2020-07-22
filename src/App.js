@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NotFound from './Utils/ErrorBoundary';
 import './styles/css/App.css';
 import FundamentalAreas from './Layout/FundamentalAreas';
+import IndividualListView from './Layout/IndividualListView';
+import IndividualStudent from './Layout/IndividualStudent';
 
 class App extends Component {
 	render() {
@@ -17,6 +19,8 @@ class App extends Component {
 								<Route exact path="/" component={Assessments} />
 								<Route exact path="/Assessments" component={Assessments} />
 								<Route exact path="/FundamentalAreas" component={FundamentalAreas} />
+								<Route exact path="/IndividualListView" component={IndividualListView} />
+								<Route exact path="/IndividualStudent" component={IndividualStudent} />
 								<Route path="/*" component={NotFound} />
 							</Switch>
 						</div>

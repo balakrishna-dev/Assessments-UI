@@ -50,6 +50,7 @@
           flex-direction: column;
   width: 70%;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .menu-container h4 {
@@ -80,7 +81,6 @@
 }
 
 .menu-buttons {
-  text-transform: none;
   width: 100%;
 }
 
@@ -94,6 +94,7 @@
 }
 
 .menu-buttons button span {
+  text-transform: none !important;
   position: absolute !important;
   padding: 9px 8px;
 }

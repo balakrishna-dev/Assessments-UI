@@ -5,8 +5,8 @@ import '../styles/css/Assessments.css';
 import { ToolbarSeparator } from 'material-ui';
 
 const MenuItemButton = (props) => {
-	const handleComponent = () => props.history.push(`/${props.componentName}`);
-
+	const label = props.label;
+	const handleComponent = () => props.history.push({ pathname: '/IndividualListView', label });
 	return (
 		<div>
 			<RaisedButton

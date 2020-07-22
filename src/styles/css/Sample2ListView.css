@@ -50,6 +50,7 @@
           flex-direction: column;
   width: 70%;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .menu-container h4 {
@@ -80,7 +81,6 @@
 }
 
 .menu-buttons {
-  text-transform: none;
   width: 100%;
 }
 
@@ -94,6 +94,7 @@
 }
 
 .menu-buttons button span {
+  text-transform: none !important;
   position: absolute !important;
   padding: 9px 8px;
 }
@@ -316,20 +317,40 @@
   }
 }
 
-.menu-buttons .navigation {
-  margin: 15px !important;
-  fill: #797878 !important;
+.menu-button {
+  width: 100%;
+  height: 60px;
+  fill: #f0f0f0 !important;
 }
 
-.menu-buttons span {
+.menu-button button {
+  height: 60px !important;
+  text-align: start !important;
+  background-color: #f0f0f0 !important;
+}
+
+.menu-button span {
   font-size: 16px !important;
   font-weight: 600 !important;
+  color: #4d4a4a !important;
   text-transform: none !important;
+}
+
+.menu-button .navigation-expand {
+  float: right;
+  margin-right: 10px !important;
+  height: 30px !important;
+  width: 30px !important;
+  fill: #8b8787 !important;
+}
+
+.menu-toolbar-separator {
+  height: 1px !important;
 }
 
 .sample2-heading {
   position: absolute;
-  margin: 10px;
+  margin: 18px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -341,7 +362,7 @@
 
 .icon-buttons .navigation {
   margin: 0px !important;
-  fill: #797878 !important;
+  fill: #8f8b8b !important;
   height: 30px !important;
   width: 30px !important;
 }

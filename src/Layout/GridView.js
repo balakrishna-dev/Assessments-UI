@@ -21,7 +21,16 @@ class GridView extends Component {
 				return null;
 			})
 			.map((item) => {
-				return <CustomCard key={item.id} title={item.name} subTitle={item.Class} imgSrc={item.img} />;
+				return (
+					<CustomCard
+						key={item.id}
+						title={item.name}
+						subTitle={item.Class}
+						imgSrc={item.img}
+						id={item.id}
+						{...this.props}
+					/>
+				);
 			});
 		return (
 			<div>

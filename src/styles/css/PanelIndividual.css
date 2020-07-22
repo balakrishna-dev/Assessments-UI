@@ -1,0 +1,70 @@
+.panel2-body {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel2-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.panel2-details {
+  margin-left: 5px;
+}
+
+.panel {
+  margin: 10px !important;
+}
+
+.react-grid-Main {
+  padding-top: 10px !important;
+}
+
+.student {
+  margin: 20px 0 10px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.react-grid-Grid {
+  min-height: 145vh !important;
+}
+
+.react-grid-Canvas {
+  overflow: hidden !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .panel-radio {
+    right: 4%;
+  }
+  .panel-radio label {
+    margin-left: 120px !important;
+  }
+  .panel-radio label::after {
+    height: 27px !important;
+    width: 27px !important;
+    background-position: 0px 0px !important;
+  }
+  .react-grid-Header {
+    left: 36%;
+  }
+}

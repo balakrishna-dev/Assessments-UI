@@ -36,7 +36,7 @@ class Sample1ListView extends Component {
 						</span>
 					)}
 				</div>
-				{!isLoading ? <ListView {...searchKeyword} /> : <h3>Loading...</h3>}
+				{!isLoading ? <ListView searchKeyword={searchKeyword} /> : <h3>Loading...</h3>}
 			</div>
 		);
 	}

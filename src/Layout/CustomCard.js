@@ -7,7 +7,10 @@ import '../styles/css/CustomCard.css';
 import MenuItem from 'material-ui/MenuItem/MenuItem';
 
 const StudentCard = (props) => {
-	const { imgSrc, title, subTitle } = props;
+	const { imgSrc, title, subTitle, id } = props;
+	const handleClick = (e) => {
+		props.history.push({ pathname: '/IndividualStudent', id: e.target.id });
+	};
 	const MorevertIcon = () => (
 		<IconMenu
 			iconButtonElement={
@@ -27,7 +30,7 @@ const StudentCard = (props) => {
 		<Card className="card-container">
 			<div className="card-body">
 				<CardMedia>
-					<img src={imgSrc} alt={title} />
+					<img src={imgSrc} alt={title} onClick={handleClick} id={id} />
 				</CardMedia>
 				<MorevertIcon />
 				<CardTitle title={title} subtitle={subTitle} />

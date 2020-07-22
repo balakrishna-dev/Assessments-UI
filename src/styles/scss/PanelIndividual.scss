@@ -1,0 +1,55 @@
+.panel2-body {
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+.panel2-image {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	margin-bottom: 5px;
+}
+
+.panel2-details {
+	margin-left: 5px;
+}
+
+.panel {
+	margin: 10px !important;
+}
+
+.react-grid-Main {
+	padding-top: 10px !important;
+}
+
+.student {
+	margin: 20px 0 10px 0;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.react-grid-Grid {
+	min-height: 145vh !important;
+}
+.react-grid-Canvas {
+	overflow: hidden !important;
+}
+
+@media only screen and (max-width: 768px) {
+	.panel-radio {
+		right: 4%;
+		label {
+			margin-left: 120px !important;
+		}
+		label::after {
+			height: 27px !important;
+			width: 27px !important;
+			background-position: 0px 0px !important;
+		}
+	}
+
+	.react-grid-Header {
+		left: 36%;
+	}
+}

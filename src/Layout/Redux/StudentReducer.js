@@ -3,7 +3,8 @@ import actionTypes from './ActionTypes';
 const initialState = {
 	studentsData: [],
 	isLoading: true,
-	error: ''
+	error: '',
+	options: []
 };
 
 function studentReducer(state = initialState, action) {
@@ -33,10 +34,36 @@ function studentReducer(state = initialState, action) {
 					return { ...student };
 				})
 			};
-		// 			let id = action.payload.id;
-		//   return Object.assign({}, state, {
-		//     [id]: Object.assign({}, state[id], { grade: action.payload.grade })
-		//   });
+		case actionTypes.INDIVIDUAL_GRADE_UPDATE:
+			return {
+				...state,
+				studentsData: state.studentsData.map((student) => {
+					if (student.id.toString() === action.payload.studentId.toString()) {
+						return {
+							...student,
+							params: student.params.map((param, indx) => {
+								if (indx.toString() === action.payload.idx.toString())
+									return {
+										...param,
+										grade: action.payload.grade
+									};
+								return { ...param };
+							})
+						};
+					}
+					return { ...student };
+				})
+			};
+		case actionTypes.FETCH_OPTIONS_SUCCESS:
+			return {
+				...state,
+				options: action.payload
+			};
+		case actionTypes.FETCH_OPTIONS_ERROR:
+			return {
+				...state,
+				error: action.payload
+			};
 		default:
 			return { ...state };
 	}

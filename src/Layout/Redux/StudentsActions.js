@@ -1,6 +1,6 @@
 import actionTypes from './ActionTypes';
 
-const fetchStudentsData = (StudentsData) => (dispatch) => {
+export const fetchStudentsData = (StudentsData) => (dispatch) => {
 	if (StudentsData) {
 		dispatch({
 			type: actionTypes.FETCH_DATA_SUCCESS,
@@ -13,5 +13,16 @@ const fetchStudentsData = (StudentsData) => (dispatch) => {
 		});
 	}
 };
-
-export default fetchStudentsData;
+// export const fetchStudentsOptions = (options) => (dispatch) => {
+// 	if (options) {
+// 		dispatch({
+// 			type: actionTypes.FETCH_OPTIONS_SUCCESS,
+// 			payload: options
+// 		});
+// 	} else {
+// 		dispatch({
+// 			type: actionTypes.FETCH_OPTIONS_ERROR,
+// 			payload: 'No Data Found'
+// 		});
+// 	}
+// };

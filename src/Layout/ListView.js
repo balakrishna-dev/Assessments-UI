@@ -7,12 +7,12 @@ import MenuItem from 'material-ui/MenuItem/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import updateGrade from './Redux/UpdateGradeAction.js';
 import '../styles/css/ListView.css';
+import { MuiThemeProvider } from 'material-ui/styles';
 
 class ListView extends Component {
 	render() {
 		const { students, searchKeyword } = this.props;
 		const { isLoading, studentsData, error } = students;
-		console.log(students);
 		const findGrade = (e) => {
 			switch (e.target.id.slice(-1)) {
 				case '1':
@@ -79,10 +79,7 @@ class ListView extends Component {
 						<input
 							type="radio"
 							name={id + 'gradeSelection'}
-							value={studentsData.filter((student) => {
-								if (student.id === id) return student.grade;
-								return '';
-							})}
+							value={grade}
 							id={id + '3'}
 							onChange={gradeHandler}
 							checked={grade === 'Developing Skill'}
@@ -94,10 +91,7 @@ class ListView extends Component {
 						<input
 							type="radio"
 							name={id + 'gradeSelection'}
-							value={studentsData.filter((student) => {
-								if (student.id === id) return student.grade;
-								return '';
-							})}
+							value={grade}
 							id={id + '4'}
 							onChange={gradeHandler}
 							checked={grade === 'Capable'}
@@ -170,34 +164,20 @@ class ListView extends Component {
 		return (
 			<div>
 				{error ? <p>{error}</p> : null}
-				{/* <div className="header">
-					<span className="header-left">{studentsData.length} Students</span>
-					{this.state.comment ? (
-						<span className="header-right">
-							Comments if any
-							<IconButton>
-								<NavigationExpandMoreIcon className="navigation" />
-							</IconButton>
-						</span>
-					) : (
-						<span className="header-right">
-							Plays with children
-							<IconButton>
-								<NavigationExpandMoreIcon className="navigation" />
-							</IconButton>
-						</span>
-					)}
-				</div> */}
 				{!isLoading ? (
-					<ReactDataGrid
-						columns={columns}
-						rowGetter={(i) => SearchedList[i]}
-						rowsCount={ROW_COUNT}
-						minHeight={700}
-						rowRenderer={RowRenderer}
-						rowHeight={ROW_HEIGHT}
-						headerRowHeight={30}
-					/>
+					<div>
+						<MuiThemeProvider>
+							<ReactDataGrid
+								columns={columns}
+								rowGetter={(i) => SearchedList[i]}
+								rowsCount={ROW_COUNT}
+								minHeight={700}
+								rowRenderer={RowRenderer}
+								rowHeight={ROW_HEIGHT}
+								headerRowHeight={30}
+							/>
+						</MuiThemeProvider>
+					</div>
 				) : (
 					<h3>Loading...</h3>
 				)}
