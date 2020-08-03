@@ -7,7 +7,7 @@ import { NavigationArrowBack } from 'material-ui/svg-icons';
 import NavigationNext from 'material-ui/svg-icons/navigation/chevron-right';
 import '../styles/css/IndividualListView.css';
 
-class Sample1ListView extends Component {
+class IndividualListView extends Component {
 	render() {
 		const { students, searchKeyword } = this.props;
 		const { isLoading, studentsData, error } = students;
@@ -30,6 +30,28 @@ class Sample1ListView extends Component {
 								<NavigationArrowBack onClick={handleBack} />
 							</IconButton>
 						}
+						iconElementRight={
+							<span>
+								<span className="right-icons">
+									{this.state.search ? (
+										<TextField
+											type="text"
+											className="search-box"
+											hintText="Search here..."
+											onChange={handleSearchWord}
+										/>
+									) : (
+										<IconButton>
+											<ActionSearch onClick={handleSearch} />
+										</IconButton>
+									)}
+									<IconButton>
+										<ActionDone />
+									</IconButton>
+								</span>
+								<MorevertIcon />
+							</span>
+						}
 					/>
 					{error ? <p>{error}</p> : null}
 					<div className="header">
@@ -45,4 +67,4 @@ const mapStateToProps = (state) => ({
 	students: state.students
 });
 
-export default connect(mapStateToProps, null)(Sample1ListView);
+export default connect(mapStateToProps, null)(IndividualListView);

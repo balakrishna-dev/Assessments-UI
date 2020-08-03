@@ -112,7 +112,7 @@ class FundamentalAreas extends Component {
 						) : (
 							//<Sample1ListView searchKeyword={this.state.searchKeyword} />
 							//<Sample2ListView searchKeyword={this.state.searchKeyword} />
-							<Sample3ListView searchKeyword={this.state.searchKeyword} />
+							<Sample3ListView searchKeyword={this.state.searchKeyword} {...this.props} />
 						)}
 					</div>
 				</MuiThemeProvider>

@@ -94,6 +94,8 @@
 }
 
 .menu-buttons button span {
+  font-size: 16px !important;
+  font-weight: 600;
   text-transform: none !important;
   position: absolute !important;
   padding: 9px 8px;
