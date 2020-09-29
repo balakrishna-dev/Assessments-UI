@@ -1,6 +1,6 @@
 # Assessments-ui-frontend
 
-# Install All Dependencies in local
+# Install All Dependencies
 npm install or yarn install 
 
 # Run The Project
