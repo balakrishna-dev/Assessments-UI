@@ -7,6 +7,8 @@ import './styles/css/App.css';
 import FundamentalAreas from './Layout/FundamentalAreas';
 import IndividualListView from './Layout/IndividualListView';
 import IndividualStudent from './Layout/IndividualStudent';
+import IndividualListView from './Layout/IndividualListView';
+import IndividualStudent from './Layout/IndividualStudent';
 
 class App extends Component {
 	render() {
